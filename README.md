@@ -79,6 +79,33 @@ Start HelloWorldClient (Python)
 
 ##### EK
 
+`build.gradle`
+
+```groovy
+tasks.register('runServer', JavaExec) {
+    group = 'application'
+    description = 'Runs the gRPC server'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'HelloWorldServer'
+}
+
+tasks.register('runServerDWR', JavaExec) {
+    group = 'application'
+    description = 'Runs the gRPC server'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'DWRecordServer'
+}
+
+tasks.register('runClient', JavaExec) {
+    group = 'application'
+    description = 'Runs the gRPC client'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'HelloWorldClient'
+    args 'Max'
+    args 'Mustermann'
+}
+```
+
 **Defining the DWRecord.proto file**
 
 ```java
