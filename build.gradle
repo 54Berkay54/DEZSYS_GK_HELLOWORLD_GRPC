@@ -46,11 +46,18 @@ tasks.register('runServer', JavaExec) {
     mainClass = 'HelloWorldServer'
 }
 
+tasks.register('runServerDWR', JavaExec) {
+    group = 'application'
+    description = 'Runs the gRPC server'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'DWRecordServer'
+}
+
 tasks.register('runClient', JavaExec) {
     group = 'application'
     description = 'Runs the gRPC client'
     classpath = sourceSets.main.runtimeClasspath
     mainClass = 'HelloWorldClient'
-     args 'Thomas' 
-     args 'Micheler'
+    args 'Max'
+    args 'Mustermann'
 }
