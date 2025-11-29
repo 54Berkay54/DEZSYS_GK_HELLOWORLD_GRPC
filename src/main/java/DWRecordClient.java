@@ -41,7 +41,16 @@ public class DWRecordClient {
                         .build()
         );
 
-        System.out.println("Fetched warehouse name: " + fetched.getWarehouseName());
+        System.out.println("warehouse id: " + fetched.getWarehouseID());
+        System.out.println("warehouse name: " + fetched.getWarehouseName());
+        System.out.println("warehouse address: " + fetched.getWarehouseAddress());
+        System.out.println("timestamp: " + fetched.getTimestamp());
+        System.out.println("warehouse address: " + fetched.getWarehouseAddress());
+        System.out.println("warehouse postal code: " + fetched.getWarehousePostalCode());
+        System.out.println("warehouse city: " + fetched.getWarehouseCity());
+        System.out.println("warehouse country: " + fetched.getWarehouseCountry());
+        System.out.println("warehouse products: " + fetched.getProductsList());
+
 
         channel.shutdown();
     }

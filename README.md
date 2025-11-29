@@ -154,8 +154,15 @@ The server loads the generated stubs, implements the RPC and starts a gRPC serve
 @Override
     public void insertWarehouse(DWRecord.WarehouseData request, StreamObserver<DWRecord.InsertResponse> responseObserver) {
 
-        System.out.println("Received WarehouseData: " + request.getWarehouseID());
-
+        System.out.println("Received WarehouseData: ");
+        System.out.println("Warehouse ID: " + request.getWarehouseID());
+        System.out.println("Warehouse name: " + request.getWarehouseName());
+        System.out.println("Timestamp: " + request.getTimestamp());
+        System.out.println("Warehouse address: " + request.getWarehouseAddress());
+        System.out.println("Warehouse postal code: " + request.getWarehousePostalCode());
+        System.out.println("Warehouse city: " + request.getWarehouseCity());
+        System.out.println("Warehouse country: " + request.getWarehouseCountry());
+        System.out.println("Received Warehouse products: " + request.getProductsList());
         storage.add(request);
 
         DWRecord.InsertResponse response = DWRecord.InsertResponse.newBuilder()
@@ -209,8 +216,15 @@ ManagedChannel channel = ManagedChannelBuilder
                         .build()
         );
 
-        System.out.println("Fetched warehouse name: " + fetched.getWarehouseName());
-
+        System.out.println("warehouse id: " + fetched.getWarehouseID());
+        System.out.println("warehouse name: " + fetched.getWarehouseName());
+        System.out.println("warehouse address: " + fetched.getWarehouseAddress());
+        System.out.println("timestamp: " + fetched.getTimestamp());
+        System.out.println("warehouse address: " + fetched.getWarehouseAddress());
+        System.out.println("warehouse postal code: " + fetched.getWarehousePostalCode());
+        System.out.println("warehouse city: " + fetched.getWarehouseCity());
+        System.out.println("warehouse country: " + fetched.getWarehouseCountry());
+        System.out.println("warehouse products: " + fetched.getProductsList());
         channel.shutdown();
 ```
 
